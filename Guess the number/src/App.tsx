@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-
+import { useState, useEffect } from "react";
+import "App.css";
 const App = () => {
   const [value, setValue] = useState("");
   const [score, setScore] = useState(0);
