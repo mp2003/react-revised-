@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-//app
 const App = () => {
   const [question, setQuestion] = useState("");
   const [options, setOptions] = useState<string[]>([]);
