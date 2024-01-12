@@ -9,7 +9,7 @@ const App = () => {
   const randomNumber = (min: number, max: number) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
-
+  //random number |
   useEffect(() => {
     let operand1 = randomNumber(1, 10);
     let operand2 = randomNumber(1, 10);
