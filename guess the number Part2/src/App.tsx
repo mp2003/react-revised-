@@ -59,8 +59,6 @@ const App = () => {
       : setScore(score - 0.25);
   };
 
-  console.log("question", question);
-
   return (
     <div>
       <h1>Generated Question: {question}</h1>
