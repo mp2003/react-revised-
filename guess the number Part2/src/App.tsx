@@ -53,7 +53,6 @@ const App = () => {
   };
 
   const handleButtonClick = (selectedAnswer: string) => {
-    console.log("Selected answer:", selectedAnswer);
     selectedAnswer === correctAnswer.toString(10)
       ? setScore(score + 1)
       : setScore(score - 0.25);
