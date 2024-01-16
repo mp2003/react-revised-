@@ -1,4 +1,3 @@
-// BasicDetailsForm.tsx
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -40,8 +39,6 @@ interface BasicDetailsFormProps {
       };
     }>
   >;
-  nextStep: () => void;
-  prevStep: () => void;
 }
 
 const BasicDetailsForm: React.FC<BasicDetailsFormProps> = ({
@@ -71,6 +68,7 @@ const BasicDetailsForm: React.FC<BasicDetailsFormProps> = ({
       },
     }));
   };
+
   return (
     <div className="pt-4">
       <div className="pt-4">
