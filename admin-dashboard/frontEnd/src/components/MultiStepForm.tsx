@@ -19,9 +19,13 @@ const MultiStepForm: React.FC = () => {
       pincode: "",
       country: "",
     },
-    files: [],
+    files: [] as File[],
+    geolocation: {
+      latitude: 0,
+      longitude: 0,
+    },
     geolocationStatus: "",
-    selectedOptions: [],
+    selectedOptions: [] as string[], // Change here
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -66,12 +70,7 @@ const MultiStepForm: React.FC = () => {
         );
       case 3:
         return (
-          <MultiFieldSelectForm
-            formData={formData}
-            setFormData={setFormData}
-            nextStep={nextStep}
-            prevStep={prevStep}
-          />
+          <MultiFieldSelectForm formData={formData} setFormData={setFormData} />
         );
       default:
         return null;

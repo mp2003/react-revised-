@@ -1,38 +1,34 @@
+// MultiFieldSelectForm.tsx
 import React from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faList, faCheck } from "@fortawesome/free-solid-svg-icons"; // Importing the needed icons
+import { faList, faCheck } from "@fortawesome/free-solid-svg-icons";
 
-// Other imports...
 interface MultiFieldSelectFormProps {
   formData: {
-    selectedOptions: string[]; // Adjust the type according to your actual structure
+    selectedOptions: string[];
   };
   setFormData: React.Dispatch<
     React.SetStateAction<{
-      selectedOptions: string[]; // Adjust the type according to your actual structure
+      selectedOptions: string[];
     }>
   >;
-  nextStep: () => void;
-  prevStep: () => void;
 }
 
 const MultiFieldSelectForm: React.FC<MultiFieldSelectFormProps> = ({
   formData,
   setFormData,
 }) => {
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate();
 
-  // Component logic
-
-  const handleOptionSelect = (event: any) => {
+  const handleOptionSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedOptions = Array.from(
       event.target.selectedOptions,
-      (option: any) => option.value
+      (option) => option.value
     );
 
-    setFormData((prevFormData: any) => ({
+    setFormData((prevFormData) => ({
       ...prevFormData,
       selectedOptions,
     }));
@@ -40,9 +36,7 @@ const MultiFieldSelectForm: React.FC<MultiFieldSelectFormProps> = ({
 
   const handleSubmit = () => {
     // Add any additional logic for form submission if needed
-
-    // Navigate to the Submission Table Page
-    navigate("/submission-table"); // Change "/submission-table" to your actual route
+    navigate("/submission-table");
   };
 
   const generateOptions = () => {
@@ -58,6 +52,7 @@ const MultiFieldSelectForm: React.FC<MultiFieldSelectFormProps> = ({
 
     return options;
   };
+
   return (
     <div className="max-w-6xl mx-auto pt-8 pb-2 ">
       <h2 className="text-2xl font-semibold mb-4 ">
@@ -102,8 +97,6 @@ const MultiFieldSelectForm: React.FC<MultiFieldSelectFormProps> = ({
 
 MultiFieldSelectForm.propTypes = {
   setFormData: PropTypes.func.isRequired,
-  nextStep: PropTypes.func.isRequired,
-  prevStep: PropTypes.func.isRequired,
 };
 
 export default MultiFieldSelectForm;

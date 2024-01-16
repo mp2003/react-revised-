@@ -1,4 +1,6 @@
+// BasicDetailsForm.tsx
 import React from "react";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
@@ -23,6 +25,13 @@ interface BasicDetailsFormProps {
       pincode: string;
       country: string;
     };
+    files: File[]; // Include the files property
+    geolocation: {
+      latitude: number;
+      longitude: number;
+    };
+    geolocationStatus: string;
+    selectedOptions: string[];
   };
   setFormData: React.Dispatch<
     React.SetStateAction<{
@@ -37,8 +46,17 @@ interface BasicDetailsFormProps {
         pincode: string;
         country: string;
       };
+      files: File[]; // Include the files property
+      geolocation: {
+        latitude: number;
+        longitude: number;
+      };
+      geolocationStatus: string;
+      selectedOptions: string[];
     }>
   >;
+  nextStep: () => void;
+  prevStep: () => void;
 }
 
 const BasicDetailsForm: React.FC<BasicDetailsFormProps> = ({
@@ -201,4 +219,9 @@ const BasicDetailsForm: React.FC<BasicDetailsFormProps> = ({
   );
 };
 
+BasicDetailsForm.propTypes = {
+  setFormData: PropTypes.func.isRequired,
+  nextStep: PropTypes.func.isRequired,
+  prevStep: PropTypes.func.isRequired,
+};
 export default BasicDetailsForm;

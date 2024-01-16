@@ -1,25 +1,48 @@
-// MultiFileUploadForm.tsx
 import React, { useState, ChangeEvent, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFile } from "@fortawesome/free-solid-svg-icons";
 
 interface MultiFileUploadFormProps {
   formData: {
+    name: string;
+    email: string;
+    phoneNumber: string;
+    address: {
+      line1: string;
+      line2: string;
+      city: string;
+      state: string;
+      pincode: string;
+      country: string;
+    };
     files: File[];
     geolocation: {
       latitude: number | null;
       longitude: number | null;
     };
-    // Add other fields as needed
+    geolocationStatus: string;
+    selectedOptions: string[];
   };
   setFormData: React.Dispatch<
     React.SetStateAction<{
+      name: string;
+      email: string;
+      phoneNumber: string;
+      address: {
+        line1: string;
+        line2: string;
+        city: string;
+        state: string;
+        pincode: string;
+        country: string;
+      };
       files: File[];
       geolocation: {
         latitude: number | null;
         longitude: number | null;
       };
-      // Add other fields as needed
+      geolocationStatus: string;
+      selectedOptions: string[];
     }>
   >;
   nextStep: () => void;
@@ -30,6 +53,7 @@ const MultiFileUploadForm: React.FC<MultiFileUploadFormProps> = ({
 }) => {
   const [geolocationStatus, setGeolocationStatus] = useState<string>("");
   const [status, setStatus] = useState<string>("");
+
   useEffect(() => {
     const captureGeolocation = () => {
       if (navigator.geolocation) {
@@ -43,7 +67,16 @@ const MultiFileUploadForm: React.FC<MultiFileUploadFormProps> = ({
             );
             setFormData((prevFormData) => ({
               ...prevFormData,
-              geolocation: { latitude, longitude },
+              geolocation: {
+                latitude:
+                  latitude !== null
+                    ? latitude
+                    : (prevFormData.geolocation.latitude as number),
+                longitude:
+                  longitude !== null
+                    ? longitude
+                    : (prevFormData.geolocation.longitude as number),
+              },
             }));
           },
           (error) => {
@@ -60,10 +93,10 @@ const MultiFileUploadForm: React.FC<MultiFileUploadFormProps> = ({
     captureGeolocation();
   }, [setFormData]);
 
-  const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleFileChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const selectedFiles = event.target.files;
     if (selectedFiles) {
-      const filesArray = Array.from(selectedFiles);
+      const filesArray: File[] = Array.from(selectedFiles);
       setFormData((prevFormData) => ({
         ...prevFormData,
         files: filesArray,
@@ -71,6 +104,7 @@ const MultiFileUploadForm: React.FC<MultiFileUploadFormProps> = ({
       setStatus("File Upload Success");
     } else setStatus("File Upload Failure");
   };
+
   return (
     <div className="max-w-lg mx-auto p-4">
       <h2 className="text-2xl font-semibold mb-4">Step 2: Multi-File Upload</h2>
