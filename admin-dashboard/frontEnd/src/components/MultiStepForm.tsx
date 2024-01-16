@@ -1,3 +1,4 @@
+// MultiStepForm.tsx
 import React, { useState } from "react";
 import BasicDetailsForm from "./BasicDetailsForm";
 import MultiFileUploadForm from "./MultiFileUploadForm";

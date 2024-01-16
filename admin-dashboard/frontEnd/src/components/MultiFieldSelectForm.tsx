@@ -1,14 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { generatePath, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faList, faCheck } from "@fortawesome/free-solid-svg-icons"; // Importing the needed icons
 
 // Other imports...
-
 interface MultiFieldSelectFormProps {
-  formData: any;
-  setFormData: React.Dispatch<React.SetStateAction<any>>;
+  formData: {
+    selectedOptions: string[]; // Adjust the type according to your actual structure
+  };
+  setFormData: React.Dispatch<
+    React.SetStateAction<{
+      selectedOptions: string[]; // Adjust the type according to your actual structure
+    }>
+  >;
   nextStep: () => void;
   prevStep: () => void;
 }
@@ -16,8 +21,6 @@ interface MultiFieldSelectFormProps {
 const MultiFieldSelectForm: React.FC<MultiFieldSelectFormProps> = ({
   formData,
   setFormData,
-  nextStep,
-  prevStep,
 }) => {
   const navigate = useNavigate(); // Initialize useNavigate hook
 
@@ -29,7 +32,7 @@ const MultiFieldSelectForm: React.FC<MultiFieldSelectFormProps> = ({
       (option: any) => option.value
     );
 
-    setFormData((prevFormData) => ({
+    setFormData((prevFormData: any) => ({
       ...prevFormData,
       selectedOptions,
     }));
@@ -98,7 +101,6 @@ const MultiFieldSelectForm: React.FC<MultiFieldSelectFormProps> = ({
 };
 
 MultiFieldSelectForm.propTypes = {
-  formData: PropTypes.object.isRequired,
   setFormData: PropTypes.func.isRequired,
   nextStep: PropTypes.func.isRequired,
   prevStep: PropTypes.func.isRequired,

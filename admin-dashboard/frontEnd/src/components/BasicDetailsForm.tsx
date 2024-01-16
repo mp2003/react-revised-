@@ -47,8 +47,6 @@ interface BasicDetailsFormProps {
 const BasicDetailsForm: React.FC<BasicDetailsFormProps> = ({
   formData,
   setFormData,
-  nextStep,
-  prevStep,
 }) => {
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

@@ -26,12 +26,10 @@ interface MultiFileUploadFormProps {
 }
 
 const MultiFileUploadForm: React.FC<MultiFileUploadFormProps> = ({
-  formData,
   setFormData,
-  nextStep,
 }) => {
   const [geolocationStatus, setGeolocationStatus] = useState<string>("");
-
+  const [status, setStatus] = useState<string>("");
   useEffect(() => {
     const captureGeolocation = () => {
       if (navigator.geolocation) {
@@ -70,16 +68,16 @@ const MultiFileUploadForm: React.FC<MultiFileUploadFormProps> = ({
         ...prevFormData,
         files: filesArray,
       }));
-    }
+      setStatus("File Upload Success");
+    } else setStatus("File Upload Failure");
   };
-
   return (
     <div className="max-w-lg mx-auto p-4">
       <h2 className="text-2xl font-semibold mb-4">Step 2: Multi-File Upload</h2>
       <hr />
       <div className="mb-4">
         <label className="block mb-4 mt-8 text-xl font-semibold ">
-          File Upload:
+          File Upload: <span className="text-sm text-gray-900">{status}</span>
         </label>
         <div className="flex items-center">
           <label className="w-40 h-40 bg-gray-300 flex items-center justify-center rounded-md cursor-pointer">
