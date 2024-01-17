@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
+import Spinner from "./Spinner";
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -10,11 +11,11 @@ const LoginPage: React.FC = () => {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const handleLogin = async () => {
     try {
-      setLoading(true); //https://assignment-3hd8.onrender.com Start loading animation
+      setLoading(true); // Start loading animation
 
       const response = await axios.post(
         "https://assignment-3hd8.onrender.com/api/login",
@@ -43,11 +44,7 @@ const LoginPage: React.FC = () => {
           Login Page
         </h2>
 
-        <div
-          className={`mb-8 flex items-center relative ${
-            loading ? "border-loading" : ""
-          }`}
-        >
+        <div className="mb-6 flex items-center relative">
           <FontAwesomeIcon
             icon={faEnvelope}
             className="text-white text-xl mr-4 mt-2"
@@ -67,11 +64,7 @@ const LoginPage: React.FC = () => {
           </div>
         </div>
 
-        <div
-          className={`mb-8 flex items-center relative ${
-            loading ? "border-loading" : ""
-          }`}
-        >
+        <div className="mb-6 flex items-center relative">
           <FontAwesomeIcon
             icon={faLock}
             className="text-white text-xl mr-4 mt-2"
@@ -92,11 +85,11 @@ const LoginPage: React.FC = () => {
         </div>
 
         <button
-          className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+          className="w-full max-h-14 bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
           onClick={handleLogin}
           disabled={loading}
         >
-          {loading ? "Logging in..." : "Login"}
+          {loading ? <Spinner title="Logging in..." /> : "Login"}
         </button>
 
         {error && <p className="text-red-500 mt-4">{error}</p>}
