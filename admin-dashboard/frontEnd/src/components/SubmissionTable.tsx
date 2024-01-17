@@ -139,7 +139,11 @@ const SubmissionTable: React.FC = () => {
               return (
                 <tr
                   {...row.getRowProps()}
-                  className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
+                  className={
+                    index % 2 === 0
+                      ? "bg-white text-gray-600"
+                      : "bg-gray-50 text-gray-600"
+                  }
                 >
                   {row.cells.map((cell) => (
                     <td {...cell.getCellProps()} className="py-2 px-4">
