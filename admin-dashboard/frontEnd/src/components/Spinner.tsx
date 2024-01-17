@@ -6,7 +6,7 @@ interface SpinnerProps {
 
 const Spinner: React.FC<SpinnerProps> = (props) => {
   return (
-    <div className="flex h-screen items-center justify-center bg-blue-800 h-20 w-full rounded-lg relative bottom-2">
+    <div className="custom-height-class flex h-screen items-center justify-center bg-blue-800 h-20 w-full rounded-lg relative bottom-2">
       {/* Adjust the background color to match the login component */}
       <div className="flex items-center">
         <span className="loading loading-spinner loading-infinity  border-t-4 border-white"></span>
