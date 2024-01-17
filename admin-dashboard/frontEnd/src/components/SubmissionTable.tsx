@@ -80,15 +80,14 @@ const SubmissionTable: React.FC = () => {
     // Update the rows with the filtered data
     setTableData(filteredData);
   };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-teal-500 via-purple-600 to-purple-800">
-      <div className="bg-black bg-opacity-30 p-8 rounded-lg shadow-md max-w-4xl w-full relative">
+      <div className="bg-black bg-opacity-30 p-4 md:p-8 rounded-lg shadow-md max-w-4xl w-full relative overflow-x-auto">
         <h2 className="text-3xl font-bold text-center text-white mb-8">
           Submission Table
         </h2>
 
-        <div className="flex justify-evenly space-x-4 mb-8">
+        <div className="flex flex-col md:flex-row justify-evenly space-y-4 md:space-y-0 md:space-x-4 mb-8">
           <DatePicker
             selected={startDate}
             onChange={(date: Date | null) => setStartDate(date)}
@@ -117,7 +116,7 @@ const SubmissionTable: React.FC = () => {
         </div>
         <table
           {...getTableProps()}
-          className="min-w-full border border-gray-900 divide-y divide-gray-300 "
+          className="min-w-full border border-gray-900 divide-y divide-gray-300 table-auto"
         >
           <thead className="bg-gray-600 ">
             {headerGroups.map((headerGroup) => (
