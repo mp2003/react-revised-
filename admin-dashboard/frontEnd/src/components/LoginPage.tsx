@@ -14,12 +14,15 @@ const LoginPage: React.FC = () => {
 
   const handleLogin = async () => {
     try {
-      setLoading(true); // Start loading animation
+      setLoading(true); //https://assignment-3hd8.onrender.com Start loading animation
 
-      const response = await axios.post("http://localhost:3001/api/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://assignment-3hd8.onrender.com/api/login",
+        {
+          email,
+          password,
+        }
+      );
 
       if (response.data.success) {
         navigate("/register"); // Redirect to the form page upon successful login

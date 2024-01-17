@@ -27,12 +27,15 @@ const RegistrationPage: React.FC = () => {
         return;
       }
 
-      const response = await axios.post("http://localhost:3001/api/register", {
-        name,
-        email,
-        password,
-        confirmPassword,
-      });
+      const response = await axios.post(
+        "https://assignment-3hd8.onrender.com/api/register",
+        {
+          name,
+          email,
+          password,
+          confirmPassword,
+        }
+      );
 
       if (response.data.success) {
         console.log("Successfully registered");
