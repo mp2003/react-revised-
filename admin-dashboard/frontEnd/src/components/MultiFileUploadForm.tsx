@@ -17,8 +17,8 @@ interface MultiFileUploadFormProps {
     };
     files: File[];
     geolocation: {
-      latitude: number | null;
-      longitude: number | null;
+      latitude: number;
+      longitude: number;
     };
     geolocationStatus: string;
     selectedOptions: string[];
@@ -38,14 +38,15 @@ interface MultiFileUploadFormProps {
       };
       files: File[];
       geolocation: {
-        latitude: number | null;
-        longitude: number | null;
+        latitude: number;
+        longitude: number;
       };
       geolocationStatus: string;
       selectedOptions: string[];
     }>
   >;
   nextStep: () => void;
+  prevStep: () => void;
 }
 
 const MultiFileUploadForm: React.FC<MultiFileUploadFormProps> = ({
@@ -71,11 +72,11 @@ const MultiFileUploadForm: React.FC<MultiFileUploadFormProps> = ({
                 latitude:
                   latitude !== null
                     ? latitude
-                    : (prevFormData.geolocation.latitude as number),
+                    : prevFormData.geolocation.latitude,
                 longitude:
                   longitude !== null
                     ? longitude
-                    : (prevFormData.geolocation.longitude as number),
+                    : prevFormData.geolocation.longitude,
               },
             }));
           },
