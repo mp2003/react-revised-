@@ -11,6 +11,23 @@ interface MultiFieldSelectFormProps {
   };
   setFormData: React.Dispatch<
     React.SetStateAction<{
+      name: string;
+      email: string;
+      phoneNumber: string;
+      address: {
+        line1: string;
+        line2: string;
+        city: string;
+        state: string;
+        pincode: string;
+        country: string;
+      };
+      files: File[];
+      geolocation: {
+        latitude: number;
+        longitude: number;
+      };
+      geolocationStatus: string;
       selectedOptions: string[];
     }>
   >;
