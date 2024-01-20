@@ -25,7 +25,7 @@ interface BasicDetailsFormProps {
       pincode: string;
       country: string;
     };
-    files: File[]; // Include the files property
+    files: File[];
     geolocation: {
       latitude: number;
       longitude: number;
