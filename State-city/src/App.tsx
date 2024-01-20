@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const App: React.FC = () => {
   const [selectedState, setSelectedState] = useState<string>("");
   const [selectedCities, setSelectedCities] = useState<string[]>([]);
+  let [selectedCity, setSelectedCity] = useState<string>("");
 
   const indianStatesAndCities = {
     AndhraPradesh: ["Visakhapatnam", "Vijayawada", "Guntur"],
@@ -52,39 +53,57 @@ const App: React.FC = () => {
   };
 
   const handleStateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedCity("");
     const newState = e.target.value as keyof typeof indianStatesAndCities;
     setSelectedState(newState);
     const citiesForNewState = indianStatesAndCities[newState] || [];
     setSelectedCities(citiesForNewState);
   };
 
+  console.log(selectedCities);
+
+  const handleCityChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    selectedCity = "";
+    setSelectedCity(e.target.value);
+  };
+
   return (
     <>
-      <div className="w-full h-screen  bg-gray-700 flex justify-center items-center">
-        <select
-          value={selectedState}
-          onChange={handleStateChange}
-          className="m-4 p-4 animate__animated animate__bounce rounded-2xl"
-        >
-          <option value=" " hidden disabled>
-            {" "}
-            Select a State
-          </option>
-          {generateStateOption()}
-        </select>
+      <div className="w-full h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-500 via-teal-500 to-green-500 text-white">
+        <div>
+          <select
+            value={selectedState}
+            onChange={handleStateChange}
+            className="m-2 p-2 sm:m-4 sm:p-4 rounded-md text-black"
+          >
+            <option value="" hidden disabled>
+              {" "}
+              Select a State
+            </option>
+            {generateStateOption()}
+          </select>
 
-        <select
-          value=" "
-          className="m-4 p-4 animate__animated animate__bounce rounded-xl"
-        >
-          <option value=" " hidden disabled>
-            select the city
-          </option>
-          {generateCityOption()}
-        </select>
+          <select
+            value={selectedCity}
+            onChange={handleCityChange}
+            className="m-2 p-2 sm:m-4 sm:p-4 rounded-md text-black"
+          >
+            <option value="" hidden disabled>
+              Select the City
+            </option>
+            {generateCityOption()}
+          </select>
+        </div>
+        <div className="mt-8 flex flex-col items-center">
+          <h1 className="text-8xl font-bold">
+            Selected State: {selectedState}
+          </h1>
+          <h2 className="text-4xl font-semibold pt-8 ">
+            Selected City: {selectedCity}
+          </h2>
+        </div>
       </div>
     </>
   );
 };
-
 export default App;
