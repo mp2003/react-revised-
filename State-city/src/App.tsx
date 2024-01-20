@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const App: React.FC = () => {
   const [selectedState, setSelectedState] = useState<string>("");
+  const [selectedCities, setSelectedCities] = useState<string[]>([]);
 
   const indianStatesAndCities = {
     AndhraPradesh: ["Visakhapatnam", "Vijayawada", "Guntur"],
@@ -43,15 +44,18 @@ const App: React.FC = () => {
   };
 
   const generateCityOption = () => {
-    return Object.keys(indianStatesAndCities).map((cities) => (
+    return selectedCities.map((cities) => (
       <option key={cities} value={cities}>
         {cities}
       </option>
     ));
   };
 
-  const handleStateChange = (e: string) => {
-    setSelectedState(e.target.value);
+  const handleStateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newState = e.target.value as keyof typeof indianStatesAndCities;
+    setSelectedState(newState);
+    const citiesForNewState = indianStatesAndCities[newState] || [];
+    setSelectedCities(citiesForNewState);
   };
 
   return (
@@ -59,6 +63,7 @@ const App: React.FC = () => {
       <div className="w-full h-screen  bg-gray-700 flex justify-center items-center">
         <select
           value={selectedState}
+          onChange={handleStateChange}
           className="m-4 p-4 animate__animated animate__bounce rounded-2xl"
         >
           <option value=" " hidden disabled>
