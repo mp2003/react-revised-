@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  width: 100%;
+  height: 15px;
+  background-color: black;
+  position: sticky;
+  top: 0;
+}
+
+.progressStyle {
+  height: 15px;
+  background-color: cyan;
+}
