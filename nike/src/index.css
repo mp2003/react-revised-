@@ -56,3 +56,8 @@
     @apply font-montserrat text-slate-gray text-lg leading-7;
   }
 }
+
+.blur-filter {
+  filter: blur(10px);
+  /* Adjust the blur amount as needed */
+}

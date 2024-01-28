@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Hero,
   PopularProducts,
@@ -12,9 +12,17 @@ import {
 import Nav from "./components/Nav";
 
 const App = () => {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <main className="relative">
-      <Nav />
+    <main className={`relative ${isMenuOpen ? "blur-filter" : ""}`}>
+      <section className="z-1">
+        <Nav toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} />
+      </section>
       <section className="xl:padding-1 wide:padding-r padding-b">
         <Hero />
       </section>
