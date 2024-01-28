@@ -13,7 +13,7 @@ const RegistrationPage: React.FC = () => {
 
   const handleRegistration = async () => {
     try {
-      // Validate mandatory fields
+
       if (!name || !email || !password || !confirmPassword) {
         setError(
           "!!! All fields are mandatory. Please fill in all the details."
@@ -21,7 +21,6 @@ const RegistrationPage: React.FC = () => {
         return;
       }
 
-      // Validate password match
       if (password !== confirmPassword) {
         setError("!!!! Password and Confirm Password do not match.");
         return;
