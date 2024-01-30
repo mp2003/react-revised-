@@ -1,36 +1,29 @@
-import "./App.css";
-import DessertsList from "./DessertsList";
+import React from "react";
+import ThemedButton from "./ThemedButton";
+import { ThemeProvider } from "./ThemeContext";
 
-const desserts = [
-  {
-    name: "Chocolate Cake",
-    calories: 400,
-    createdAt: "2022-09-01",
-  },
-  {
-    name: "Ice Cream",
-    calories: 200,
-    createdAt: "2022-01-02",
-  },
-  {
-    name: "Tiramisu",
-    calories: 300,
-    createdAt: "2021-10-03",
-  },
-  {
-    name: "Cheesecake",
-    calories: 600,
-    createdAt: "2022-01-04",
-  },
-];
+const App = () => {
 
-function App() {
   return (
-    <div className="App">
-      <h2>List of low calorie desserts:</h2>
-      <DessertsList data={desserts} />
-    </div>
+    <ThemeProvider >
+      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto hic quibusdam debitis aut dolorem eius sint alias magni neque, minus repudiandae voluptas beatae temporibus cupiditate, nisi reprehenderit sequi at tempora!
+        ?\<br />
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis consequuntur libero voluptates tenetur officiis harum consectetur maiores, dolorum, illo accusamus voluptatem doloribus mollitia officia earum eligendi ut quaerat animi itaque.
+        ?\<br />
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis consequuntur libero voluptates tenetur officiis harum consectetur maiores, dolorum, illo accusamus voluptatem doloribus mollitia officia earum eligendi ut quaerat animi itaque.
+        ?\<br />
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis consequuntur libero voluptates tenetur officiis harum consectetur maiores, dolorum, illo accusamus voluptatem doloribus mollitia officia earum eligendi ut quaerat animi itaque.
+        ?\<br />
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis consequuntur libero voluptates tenetur officiis harum consectetur maiores, dolorum, illo accusamus voluptatem doloribus mollitia officia earum eligendi ut quaerat animi itaque.
+        ?\<br />
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis consequuntur libero voluptates tenetur officiis harum consectetur maiores, dolorum, illo accusamus voluptatem doloribus mollitia officia earum eligendi ut quaerat animi itaque.
+        <br />
+        <ThemedButton />
+
+      </div>
+    </ThemeProvider>
   );
-}
+
+};
 
 export default App;
