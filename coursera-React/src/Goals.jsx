@@ -67,9 +67,12 @@ const Goals = () => {
                         ))}
                     </ul>
                 </main>
+
             </div>
         </>
     );
 };
 
 export default Goals;
+
+
