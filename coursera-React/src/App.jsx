@@ -1,29 +1,15 @@
-import React from "react";
-import ThemedButton from "./ThemedButton";
-import { ThemeProvider } from "./ThemeContext";
+import React from 'react'
+import ExptTheme from './ExptTheme'
+import Goals from './Goals'
 
 const App = () => {
-
   return (
-    <ThemeProvider >
-      <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto hic quibusdam debitis aut dolorem eius sint alias magni neque, minus repudiandae voluptas beatae temporibus cupiditate, nisi reprehenderit sequi at tempora!
-        ?\<br />
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis consequuntur libero voluptates tenetur officiis harum consectetur maiores, dolorum, illo accusamus voluptatem doloribus mollitia officia earum eligendi ut quaerat animi itaque.
-        ?\<br />
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis consequuntur libero voluptates tenetur officiis harum consectetur maiores, dolorum, illo accusamus voluptatem doloribus mollitia officia earum eligendi ut quaerat animi itaque.
-        ?\<br />
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis consequuntur libero voluptates tenetur officiis harum consectetur maiores, dolorum, illo accusamus voluptatem doloribus mollitia officia earum eligendi ut quaerat animi itaque.
-        ?\<br />
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis consequuntur libero voluptates tenetur officiis harum consectetur maiores, dolorum, illo accusamus voluptatem doloribus mollitia officia earum eligendi ut quaerat animi itaque.
-        ?\<br />
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis consequuntur libero voluptates tenetur officiis harum consectetur maiores, dolorum, illo accusamus voluptatem doloribus mollitia officia earum eligendi ut quaerat animi itaque.
-        <br />
-        <ThemedButton />
+    // <ExptTheme />
+    // <div>hello</div>
+    <div className='h-screen flex items-center justify-center bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black '>
+      <Goals />
+    </div>
+  )
+}
 
-      </div>
-    </ThemeProvider>
-  );
-
-};
-
-export default App;
+export default App
