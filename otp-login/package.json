@@ -12,6 +12,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-glassmorphism": "^0.0.1",
     "theme-change": "^2.5.0"
   },
   "devDependencies": {

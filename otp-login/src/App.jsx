@@ -1,50 +1,20 @@
-import React, { useEffect } from "react";
+// App.jsx
+import React from "react";
 import LoginWithPhone from "./components/LoginWithPhone";
 import { themeChange } from "theme-change";
+import "./App.css"; // You can keep your custom styles here
 
 const App = () => {
-  const themes = [
-    "light",
-    "dark",
-    "cupcake",
-    "bumblebee",
-    "emerald",
-    "corporate",
-    "synthwave",
-    "retro",
-    "cyberpunk",
-    "valentine",
-    "halloween",
-    "garden",
-    "forest",
-    "aqua",
-    "lofi",
-    "pastel",
-    "fantasy",
-    "wireframe",
-    "black",
-    "luxury",
-    "dracula",
-    "cmyk",
-    "autumn",
-    "business",
-    "acid",
-    "lemonade",
-    "night",
-    "coffee",
-    "winter",
-    "dim",
-    "nord",
-    "sunset",
-  ];
-
   themeChange(false, "light");
-  return (
-    <div className="font-sans text-center">
-      <marquee>
-        <h1 className="text-2xl font-semibold">Login with Phone</h1>
-      </marquee>
 
+  // Style for the gradient background
+  const gradientBgStyle = {
+    background: "linear-gradient(45deg, #a7c0cd, #9771d4)",
+    height: "100%",
+  };
+
+  return (
+    <div className="flex items-center justify-center min-h-screen " style={gradientBgStyle}>
       <LoginWithPhone />
     </div>
   );
