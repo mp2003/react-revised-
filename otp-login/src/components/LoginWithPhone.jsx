@@ -3,7 +3,7 @@ import OtpInput from './OtpInput';
 
 const LoginWithPhone = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [logged, setLogged] = useState(false);
+    const [logged, setLogged] = useState(true);
     const [showPhoneNumberError, setShowPhoneNumberError] = useState(false);
     const [typingStarted, setTypingStarted] = useState(false);
 
@@ -26,10 +26,17 @@ const LoginWithPhone = () => {
         console.log("logged");
     };
 
+    const onOtpSubmit = (otp) => {
+        console.log("entered otp" + otp);
+    }
+
     return (
         <div className='my-4'>
             {logged ? (
-                <OtpInput />
+                <div>
+                    <span>Enter OTP sent to : {phoneNumber}</span>
+                    <OtpInput length={4} onOtpSubmit={onOtpSubmit} />
+                </div>
             ) : (
                 <form onSubmit={handleSubmit}>
                     <input
@@ -43,7 +50,7 @@ const LoginWithPhone = () => {
                     <button className="btn btn-neutral" disabled={phoneNumberSubmit()} onClick={toggleLogin}>
                         Submit
                     </button>
-                    <div>
+                    <div className='my-2 '>
                         {typingStarted && showPhoneNumberError && (
                             <span className="text-red-500">
                                 Phone number should be 10 digits
