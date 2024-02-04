@@ -26,10 +26,29 @@ const OtpInput = ({ length = 4, onOtpSubmit = () => { } }) => {
 
             onOtpSubmit(combinedOtp);
         }
-        return combinedOtp;
+        // return combinedOtp;
+
+        if (value && index < length - 1 && inputRefs.current[index + 1]) {
+            inputRefs.current[index + 1].focus();
+        }
+
+        // if (index < length - 1 && )
     };
-    const handleClick = () => { };
-    const handleKeyDown = () => { };
+    const handleClick = (index) => {
+        inputRefs.current[index].setSelectionRange(1, 1);
+
+        const emptyIndex = otp.findIndex(value => value === "");
+        if (emptyIndex !== -1 && index > 0 && emptyIndex !== index - 1) {
+            inputRefs.current[emptyIndex].focus();
+        }
+    }
+
+
+    const handleKeyDown = (index, e) => {
+        if (e.keyCode === 8 && !otp[index] && index > 0 && inputRefs.current[index - 1]) {
+            inputRefs.current[index - 1].focus();
+        }
+    }
 
 
     return <div>
