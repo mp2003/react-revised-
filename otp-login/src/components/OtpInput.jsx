@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const OtpInput = ({ length = 4, onOtpSumbit = () => { } }) => {
+const OtpInput = ({ length = 4, onOtpSubmit = () => { } }) => {
     const [otp, setOtp] = useState(new Array(length).fill(""));
     const inputRefs = useRef([]);
 
@@ -9,11 +9,24 @@ const OtpInput = ({ length = 4, onOtpSumbit = () => { } }) => {
             inputRefs.current[0].focus();
     }, [])
 
-    console.log(inputRefs);
+    // console.log(inputRefs);
     const handleChange = (index, e) => {
         const value = e.target.value;
         if (isNaN(value))
             return;
+        const newOtp = [...otp]
+        newOtp[index] = value.substring(value.length - 1);
+        setOtp(newOtp);
+
+        //submitt trigger change
+        const combinedOtp = newOtp.join("");
+
+        if (combinedOtp.length === length) {
+            console.log(combinedOtp);
+
+            onOtpSubmit(combinedOtp);
+        }
+        return combinedOtp;
     };
     const handleClick = () => { };
     const handleKeyDown = () => { };
@@ -29,7 +42,8 @@ const OtpInput = ({ length = 4, onOtpSumbit = () => { } }) => {
                 onChange={(e) => handleChange(index, e)}
                 onClick={() => handleClick(index)}
                 onKeyDown={(e) => handleKeyDown(index, e)}
-                className="border-2 border-black" />
+                className="border-2 border-black"
+                maxLength={1} />
         })}</div>;
 };
 

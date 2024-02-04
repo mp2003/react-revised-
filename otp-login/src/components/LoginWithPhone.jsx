@@ -27,7 +27,8 @@ const LoginWithPhone = () => {
     };
 
     const onOtpSubmit = (otp) => {
-        console.log("entered otp" + otp);
+        console.log("entered otp " + otp);
+
     }
 
     return (
