@@ -3,6 +3,17 @@
 @tailwind utilities;
 
 /* Add these styles to your global CSS or Tailwind CSS setup */
+.react-tel-input .form-control {
+    @apply !w-full py-6 !text-base;
+}
+
+.opt-container {
+    @apply flex justify-between gap-2;
+}
+
+.opt-container input {
+    @apply !mr-0 flex-1 py-5 outline-none rounded-lg bg-slate-50 text-slate-700 text-xl font-bold;
+}
 
 .glassmorphic-container {
     background: linear-gradient(145deg, #4a4a4a, #292929);
@@ -10,5 +21,4 @@
         -20px -20px 50px rgba(41, 41, 41, 0.5);
     border-radius: 15px;
     padding: 20px;
-    display: inline-block;
 }

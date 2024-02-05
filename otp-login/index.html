@@ -3,7 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="https://unpkg.com/react-glassmorphism/dist/style.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/react-glassmorphism/dist/style.min.css"
+    />
+    <!-- Import your Firebase configuration from the firebase.js file -->
+    <script type="module" src="/src/services/firebase.js"></script>
+    <!-- Include Firebase modules based on your application's needs -->
+    <script
+      src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"
+      type="module"
+    ></script>
+
+    <script
+      src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"
+      type="module"
+    ></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
