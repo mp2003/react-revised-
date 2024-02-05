@@ -143,7 +143,7 @@ const App = () => {
                   country={"in"}
                   value={ph}
                   onChange={setPh}
-                  className="text-slate-700"
+                  className="text-slate-700 text-xl font-bold"
                 />
                 <button
                   onClick={onSignup}
