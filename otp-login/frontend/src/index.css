@@ -5,9 +5,9 @@
 /* Add these styles to your global CSS or Tailwind CSS setup */
 
 .glassmorphic-container {
-    background: linear-gradient(145deg, #e0e0e0, #ffffff);
-    box-shadow: 20px 20px 50px rgba(163, 177, 198, 0.5),
-        -20px -20px 50px rgba(255, 255, 255, 0.5);
+    background: linear-gradient(145deg, #4a4a4a, #292929);
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5),
+        -20px -20px 50px rgba(41, 41, 41, 0.5);
     border-radius: 15px;
     padding: 20px;
     display: inline-block;

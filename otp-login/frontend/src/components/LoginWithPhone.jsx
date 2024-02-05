@@ -45,13 +45,13 @@ const LoginWithPhone = () => {
                     <div className="glassmorphic-container p-4 inline-block">
                         <input
                             type="text"
-                            placeholder="Enter your phoneNumber"
+                            placeholder="Enter a valid phoneNumber"
                             value={phoneNumber}
                             onChange={handleInputChange}
                             className="input input-bordered w-full max-w-xs mx-auto text-l mb-4"
                             maxLength={10}
                         />
-                        <button className="btn btn-neutral" disabled={phoneNumberSubmit()} onClick={toggleLogin}>
+                        <button className="btn btn-success" disabled={phoneNumberSubmit()} onClick={toggleLogin}>
                             Submit
                         </button>
                         <div className='my-2'>
