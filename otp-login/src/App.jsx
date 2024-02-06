@@ -16,7 +16,6 @@ const App = () => {
   const [showOTP, setShowOTP] = useState(false);
   const [user, setUser] = useState(null);
   const [showConfetti, setShowConfetti] = useState(false);
-  const [first, setFirst] = useState("");
   useEffect(() => {
     // Set showConfetti to true to trigger the confetti animation
     setShowConfetti(true);
