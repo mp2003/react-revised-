@@ -1,7 +1,6 @@
 import { BsFillShieldLockFill, BsTelephoneFill } from "react-icons/bs";
 import { CgSpinner } from "react-icons/cg";
 import Confetti from "react-confetti";
-
 import OtpInput from "otp-input-react";
 import { useState, useEffect } from "react";
 import PhoneInput from "react-phone-input-2";
@@ -17,7 +16,7 @@ const App = () => {
   const [showOTP, setShowOTP] = useState(false);
   const [user, setUser] = useState(null);
   const [showConfetti, setShowConfetti] = useState(false);
-
+  const [first, setFirst] = useState("");
   useEffect(() => {
     // Set showConfetti to true to trigger the confetti animation
     setShowConfetti(true);
