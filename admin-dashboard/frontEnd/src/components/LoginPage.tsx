@@ -55,9 +55,9 @@ const LoginPage: React.FC = () => {
             </label>
             <input
               id="email"
-              className="w-full p-3 border-b-2 border-white bg-transparent focus:outline-none focus:border-teal-900 focus:bg-transparent-200 rounded-md text-base text-white placeholder-style"
+              className="w-full p-3 border-b-2 border-white bg-transparent focus:outline-none focus:border-teal-900 focus:bg-transparent-200 rounded-md text-base text-black placeholder-style"
               type="email"
-              placeholder="Enter your email"
+              placeholder="Enter : test@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -77,7 +77,7 @@ const LoginPage: React.FC = () => {
               id="password"
               className="w-full p-3 border-b-2 border-white bg-transparent focus:outline-none focus:border-teal-900 focus:bg-transparent-200 rounded-md text-base text-white placeholder-style"
               type="password"
-              placeholder="Enter your password"
+              placeholder="Enter : password123"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />

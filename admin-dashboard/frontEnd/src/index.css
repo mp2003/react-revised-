@@ -65,7 +65,7 @@ body {
 }
 
 .placeholder-style::placeholder {
-    color: rgba(255, 255, 255, 0.39);
+    color: rgba(51, 46, 46, 0.76);
     /* Placeholder text color */
     opacity: 1;
     /* Placeholder text opacity */
